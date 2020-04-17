@@ -10,7 +10,17 @@
 <div class="row">
 
     <h3>Your Story Elements</h3>
-    <p>Toggle Important:</p>
+    <div class="valign-wrapper">
+        <form action="#">
+            <div class="switch">
+                <label>
+      Toggle Important:
+      <input type="checkbox">
+      <span class="lever"></span>
+    </label>
+            </div>
+        </form>
+    </div>
 
 </div>
 <ul class="collapsible" data-collapsible="accordion">
@@ -18,18 +28,16 @@
     <li>
         <div class="collapsible-header">
             <div class="col s9 task_header">
-                <strong>{{element.category_name}}: {{element.element_name}}</strong>
+                <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong>
             </div>
 
             <div class="col s3">
                 <i class="material-icons">expand_more</i>
-                <a href="{{url_for('', element_id=element._id)}}" class="waves-effect waves-light btn btn-small ">View</a>
-                <a href="{{url_for('', element_id=element._id)}}" class="waves-effect waves-light btn btn-small ">Delete</a>
             </div>
         </div>
 
         <div class="collapsible-body">
-            <span>
+            <span class="truncate">
           {{element.element_vignette}}
           </span>
         </div>
