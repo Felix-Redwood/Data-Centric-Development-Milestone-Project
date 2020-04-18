@@ -19,8 +19,13 @@ app.config["MONGO_DBNAME"] = 'story_database'
 
 mongo = PyMongo(app)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    print("error 404, page not found")
+    return render_template('404.html'), 404
+
 @app.route('/')
-@app.route('/nav_home', methods=['POST'])
+@app.route('/nav_home', methods=['POST', 'GET'])
 def nav_home():
     return render_template("index.html", elements=mongo.db.story_elements.find())
 
