@@ -53,8 +53,12 @@
             $('.collapsible').collapsible();
             $(".button-collapse").sideNav({ edge: 'right' });
             $(".dropdown-button").dropdown({ hover: false, belowOrigin: true });
+            $("#toggleimportant").on("change", "input:checkbox", function() {
+                $("#toggleimportant").submit();
+            });
         });
     </script>
+    {% block js %} {% endblock %}
 </body>
 
 </html>
