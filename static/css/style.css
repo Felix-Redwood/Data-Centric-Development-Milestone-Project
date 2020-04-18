@@ -1,4 +1,107 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 .base-container {
     padding-top: 0.8em;
     padding-bottom: 0.8em;
+}
+
+.container {
+    /* use of important to improve UX on all devices */
+    width: 90% !important;
+}
+
+.head-logo {
+    margin-left: 0.5em;
+}
+
+.logo {
+    width: 2em;
+    height: 2em;
+}
+
+.fullwidthimage {
+    width: 100%;
+}
+
+.link-fade-blue:hover {
+    color: #7733ff;
+    -webkit-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.link-fade-white:hover {
+    color: #737373;
+    -webkit-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.white-link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-wrapper {}
+
+.dropdown-content li>option {
+    font-size: 16px;
+    color: #26a69a;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.img-container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.footer-social li {
+    display: inline;
+    padding-left: 0.5em;
+    vertical-align: middle;
+}
+
+.footer-social li a i {
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5em;
+}
+
+.footer-social li a i:hover {
+    background: #800000;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+.footer-copyright .container {
+    max-height: 3.25em;
+}
+
+@media (max-width: 992px) {
+    .brand-logo {
+        /* use of !important to cancel out auto-centering in materialize */
+        left: 7% !important;
+    }
+    .no-mobile {
+        display: none;
+    }
 }
