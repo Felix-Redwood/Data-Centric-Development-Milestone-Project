@@ -29,18 +29,27 @@
             </ul>
             <nav id="StoryBoardNav">
                 <div class="nav-wrapper">
-                    <a href="{{ url_for('nav_home') }}" class="brand-logo head-logo"><img class="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="StoryBoard logo"></a>
-                    <ul class="right hide-on-med-and-down navul">
+                    <a href="{{ url_for('nav_home') }}" class="brand-logo head-logo" id="navLogo"><img class="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="StoryBoard logo"><logotext class="no-mobile">Home</logotext></a>
+                    <ul class="right navul">
+                        <li class="no-mobile"><a class="dropdown-button" href="#!" data-activates="dropdown1">Elements<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li class="no-mobile"><a class="dropdown-button" href="#!" data-activates="dropdown1">Subcategories<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li class="no-mobile"><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                         <li class="search-container">
                             <form id="searchForm" action="">
                                 <input class="input-search" type="text" placeholder="Search.." name="search" required>
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </form>
                         </li>
-                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
+                </div>
+                <div class="tabs-container row mobile-only">
+                    <div class="col s12">
+                        <ul class="tabs" id="navTabs">
+                            <li class="tab col s3"><a href="#test1">Elements</a></li>
+                            <li class="tab col s3"><a href="#test2">Subcategories</a></li>
+                            <li class="tab col s3"><a href="#test3">Categories</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -53,7 +62,7 @@
     <footer class="page-footer" id="StoryBoardFooter">
         <div class="container">
             <div class="row">
-                <div class="col l8 s12">
+                <div class="col l8 no-mobile">
                     <h5 class="white-text">About StoryBoard</h5>
                     <p class="grey-text text-lighten-4">StoryBoard is a simple application, designed to help artists keep track of their stories.</p>
                 </div>
@@ -66,10 +75,10 @@
         <div class="footer-copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s12 m6">
                         <p>&copy; 2020 StoryBoard.inc</p>
                     </div>
-                    <div class="col s6">
+                    <div class="col m6 no-mobile">
                         <ul class="right footer-social">
                             <li>Social Links:</li>
                             <li><a class="grey-text text-lighten-3" href="#!" target="_blank"><i class="fab fa-facebook"></i></a></li>
@@ -88,6 +97,7 @@
         $(document).ready(function() {
             $('.collapsible').collapsible();
             $(".button-collapse").sideNav({ edge: 'right' });
+            $('ul.tabs').tabs();
             $('.dropdown-button').dropdown({
                 constrainWidth: true,
                 hover: false,
@@ -95,6 +105,9 @@
             });
             $("#toggleimportant").on("change", "input:checkbox", function() {
                 $("#toggleimportant").submit();
+            });
+            $(".importantSwitch").on("change", "input:checkbox", function() {
+                $(".importantSwitch").submit();
             });
         });
     </script>
