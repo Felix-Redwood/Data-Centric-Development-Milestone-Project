@@ -27,11 +27,11 @@ def page_not_found(e):
 @app.route('/')
 @app.route('/nav_home', methods=['POST', 'GET'])
 def nav_home():
-    return render_template("index.html", elements=mongo.db.story_elements.find())
+    return render_template("index.html", elements=mongo.db.story_elements.find().limit(10))
 
 @app.route('/important_home', methods=['POST'])
 def important_home():
-    return render_template("indeximportant.html", elements=mongo.db.story_elements.find( {'important': True} ))
+    return render_template("indeximportant.html", elements=mongo.db.story_elements.find( {'important': True} ).limit(10))
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
