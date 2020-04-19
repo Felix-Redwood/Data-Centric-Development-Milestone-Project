@@ -8,6 +8,10 @@ main {
     flex: 1 0 auto;
 }
 
+.justify {
+    text-align: justify;
+}
+
 .base-container {
     padding-top: 0.8em;
     padding-bottom: 0.8em;
@@ -18,6 +22,20 @@ main {
     width: 90% !important;
 }
 
+#mobileNav li {
+    width: 100%;
+    position: absolute;
+}
+
+#navLogo {
+    height: 100%;
+}
+
+#navLogo logotext {
+    position: absolute;
+    padding-left: 0.4em;
+}
+
 .head-logo {
     margin-left: 0.5em;
 }
@@ -25,6 +43,14 @@ main {
 .logo {
     width: 2em;
     height: 2em;
+}
+
+.logo:hover {
+    opacity: 0.5;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .fullwidthimage {
@@ -56,6 +82,19 @@ main {
     background-color: #008000;
 }
 
+#StoryBoardNav .tabs-container {
+    background-color: #008000;
+    position: static;
+}
+
+#navTabs {
+    background-color: #008000;
+}
+
+#navTabs a {
+    color: #fff;
+}
+
 #StoryBoardFooter {
     background-color: #008000;
 }
@@ -80,11 +119,10 @@ navbr {
 
 .search-container button {
     width: 20%;
-    height:100%;
+    height: 100%;
     float: left;
     background-color: transparent;
     border: 0;
-    cursor: pointer;
 }
 
 .search-container button:hover {
@@ -164,11 +202,43 @@ navbr {
 }
 
 @media (max-width: 992px) {
+    main, footer {
+        position: relative;
+        top: 1.5em;
+    }
+    #StoryBoardFooter {
+        padding-top: -1.5em;
+    }
+    #StoryBoardFooter .footer-copyright {
+        padding: 0;
+    }
     .brand-logo {
         /* use of !important to cancel out auto-centering in materialize */
         left: 7% !important;
     }
+    #mobileMenu {
+        /* use of !important to cancel out automatic moving to the left in materialize */
+        position: static;
+        right: 2% !important;
+    }
+    .search-container {
+        width: 100%;
+    }
+    .side-nav {
+        height: 120vh;
+        display: block;
+    }
     .no-mobile {
+        display: none;
+    }
+    .container {
+    /* use of important to improve UX on all devices */
+    width: 85% !important;
+    }
+}
+
+@media (min-width: 993px) {
+    .mobile-only {
         display: none;
     }
 }
