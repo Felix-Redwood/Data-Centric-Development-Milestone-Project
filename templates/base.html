@@ -27,10 +27,18 @@
                 </li>
                 <li><a href="#!">three</a></li>
             </ul>
-            <nav>
+            <nav id="StoryBoardNav">
                 <div class="nav-wrapper">
                     <a href="{{ url_for('nav_home') }}" class="brand-logo head-logo"><img class="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="StoryBoard logo"></a>
-                    <ul class="right hide-on-med-and-down">
+                    <ul class="right hide-on-med-and-down navul">
+                        <li class="search-container">
+                            <form id="searchForm" action="">
+                                <input class="input-search" type="text" placeholder="Search.." name="search" required>
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                        </li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                 </div>
@@ -42,7 +50,7 @@
             {% block content %} {% endblock %}
         </div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer" id="StoryBoardFooter">
         <div class="container">
             <div class="row">
                 <div class="col l8 s12">
@@ -51,7 +59,7 @@
                 </div>
                 <div class="col l4 s12">
                     <h5 class="white-text">Contact:</h5>
-                    <p>You can contact us at <a class="link-fade-white white-link" href="mailto:#"  target="_blank">StoryBoard@gmail.com</a></p>
+                    <p>You can contact us at <a class="link-fade-white white-link" href="mailto:#" target="_blank">StoryBoard@gmail.com</a></p>
                 </div>
             </div>
         </div>

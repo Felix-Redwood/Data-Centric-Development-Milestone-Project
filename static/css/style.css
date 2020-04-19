@@ -40,7 +40,7 @@ main {
 }
 
 .link-fade-white:hover {
-    color: #737373;
+    color: #73e600;
     -webkit-transition: color 0.3s ease-in-out;
     -moz-transition: color 0.3s ease-in-out;
     -ms-transition: color 0.3s ease-in-out;
@@ -52,7 +52,74 @@ main {
     color: #fff;
 }
 
+#StoryBoardNav {
+    background-color: #008000;
+}
+
+#StoryBoardFooter {
+    background-color: #008000;
+}
+
+.navul {
+    height: 100%;
+}
+
+.navul li {
+    height: 100%;
+}
+
 .nav-wrapper {}
+
+navbr {
+    width: 0.5em;
+}
+
+.search-container {
+    width: 20em;
+}
+
+.search-container button {
+    width: 20%;
+    height:100%;
+    float: left;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #739900;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+#searchForm {
+    height: 100%;
+}
+
+#searchForm .input-search {
+    width: 70%;
+    height: 100%;
+    float: left;
+    margin-bottom: 0;
+    border: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#searchForm .input-search:hover {
+    background-color: #86b300;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+#searchForm .input-search:focus {
+    background-color: #86b300;
+}
 
 .dropdown-content li>option {
     font-size: 16px;
