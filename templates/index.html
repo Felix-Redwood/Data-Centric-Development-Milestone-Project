@@ -1,15 +1,6 @@
-{% extends 'base.html' %} {% block title %}StoryBoard Homepage{% endblock %} {% block content %}
+{% extends 'home.html' %}
 
-<div class="row">
-
-    <h2>StoryBoard</h2>
-    <p>StoryBoard Information</p>
-
-</div>
-
-<div class="row">
-
-    <h3>Your Story Elements</h3>
+{% block important %}
     <div class="valign-wrapper">
         <form action="{{ url_for('important_home') }}" method="POST" id="toggleimportant">
             <div class="switch">
@@ -21,28 +12,4 @@
             </div>
         </form>
     </div>
-
-</div>
-<ul class="collapsible" data-collapsible="accordion">
-    {% for element in elements %}
-    <li>
-        <div class="collapsible-header">
-            <div class="col s9 task_header">
-                <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong>
-            </div>
-
-            <div class="col s3">
-                <i class="material-icons">expand_more</i>
-            </div>
-        </div>
-
-        <div class="collapsible-body">
-            <span class="truncate">
-          {{element.element_vignette}}
-          </span>
-        </div>
-    </li>
-    {% endfor %}
-</ul>
-
-{% endblock %}
+{% endblock important %}

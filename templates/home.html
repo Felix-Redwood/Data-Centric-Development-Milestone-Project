@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block title %}StoryBoard Homepage{% endblock title %} {% block content %}
+
+<div class="row">
+
+    <h2>StoryBoard</h2>
+    <p class="justify">StoryBoard is a simple program, designed to help YOU, the writer, to keep track of your story. Used by filmmakers, writers and
+     tabletop gamers alike, StoryBoard is the #1 program to keep track of your project.</p>
+     <p class="justify">Follow us on <a class="link-fade-blue" href="#">Facebook</a>, <a class="link-fade-blue" href="#">Twitter</a> and 
+     <a class="link-fade-blue" href="#">Instagram</a> to recieve updates, participate in community activities and win prizes!</p>
+
+</div>
+
+<div class="row">
+
+    <h3>Your Story Elements:</h3>
+    {% block important %}{% endblock important %}
+</div>
+
+<ul class="collapsible" data-collapsible="accordion">
+    {% for element in elements %}
+    <li>
+        <div class="collapsible-header">
+            <div class="col s9 task_header">
+                <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong>
+            </div>
+
+            <div class="col s3">
+                <i class="material-icons">expand_more</i>
+            </div>
+        </div>
+
+        <div class="collapsible-body">
+            <span class="truncate">
+          {{element.element_vignette}}
+          </span>
+          <br>
+            <div class="row">
+                {% if element.important %}
+                <form action="{{ url_for('nav_home') }}" method="POST" class="importantSwitch">
+                    <div class="switch">
+                        <label>
+      Important:
+      <input type="checkbox" checked>
+      <span class="lever"></span>
+    </label>
+                    </div>
+                </form>
+                {% else %}
+                <form action="{{ url_for('nav_home') }}" method="POST" class="importantSwitch">
+                    <div class="switch">
+                        <label>
+      Important:
+      <input type="checkbox">
+      <span class="lever"></span>
+    </label>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<small>This page will only show 10 of your story elements. To see them all, go to your <a class="link-fade-blue" href="#">story elements</a> page</small>
+<br>
+<br>
+
+{% endblock content %}
