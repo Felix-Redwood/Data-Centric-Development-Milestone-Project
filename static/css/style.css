@@ -1,3 +1,6 @@
+/* When possible, opacity is used instead of background-color when creating transitions. Doing this means that we won't have to change the
+background-color every time we change the background*/
+
 body {
     display: flex;
     min-height: 100vh;
@@ -20,6 +23,11 @@ main {
 .container {
     /* use of important to improve UX on all devices */
     width: 90% !important;
+}
+
+.collapsible-contained {
+    width: 80%;
+    height: 3em;
 }
 
 #mobileNav li {
@@ -126,11 +134,11 @@ navbr {
 }
 
 .search-container button:hover {
-    background-color: #739900;
-    -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
-    -ms-transition: background 0.3s ease-in-out;
-    transition: background 0.3s ease-in-out;
+    background-color: #86b300;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #searchForm {
@@ -148,15 +156,19 @@ navbr {
 }
 
 #searchForm .input-search:hover {
-    background-color: #86b300;
-    -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
-    -ms-transition: background 0.3s ease-in-out;
-    transition: background 0.3s ease-in-out;
+    opacity: 0.5;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 #searchForm .input-search:focus {
     background-color: #86b300;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .dropdown-content li>option {
@@ -190,11 +202,11 @@ navbr {
 }
 
 .footer-social li a i:hover {
-    background: #800000;
-    -webkit-transition: background 0.3s ease-in-out;
-    -moz-transition: background 0.3s ease-in-out;
-    -ms-transition: background 0.3s ease-in-out;
-    transition: background 0.3s ease-in-out;
+    opacity: 0.5;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .footer-copyright .container {
