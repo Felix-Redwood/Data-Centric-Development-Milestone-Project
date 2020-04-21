@@ -1,0 +1,16 @@
+{% extends 'baseelements.html' %}
+
+    {% block important %}
+    <div class="valign-wrapper">
+        <form action="{{ url_for('nav_elements') }}" method="POST" id="toggleimportant">
+            <div class="switch">
+                <label>
+      Toggle Important:
+      <input type="checkbox">
+      <span class="lever"></span>
+    </label>
+            </div>
+        </form>
+    </div>
+    {% endblock important %}
+
