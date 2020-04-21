@@ -18,22 +18,13 @@
 <body>
     <header>
         <div class="navbar-fixed">
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">Home</a></li>
-                <li><a href="#!">Elements</a></li>
-                <li class="divider"></li>
-                <li>
-                    <option disabled selected>Categories:</option>
-                </li>
-                <li><a href="#!">three</a></li>
-            </ul>
             <nav id="StoryBoardNav">
                 <div class="nav-wrapper">
                     <a href="{{ url_for('nav_home') }}" class="brand-logo head-logo" id="navLogo"><img class="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="StoryBoard logo"><logotext class="no-mobile">Home</logotext></a>
                     <ul class="right navul">
-                        <li class="no-mobile"><a class="dropdown-button" href="#!" data-activates="dropdown1">Elements<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li class="no-mobile"><a class="dropdown-button" href="#!" data-activates="dropdown1">Subcategories<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li class="no-mobile"><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li class="no-mobile"><a href="/nav_elements">Elements</a></li>
+                        <li class="no-mobile"><a href="/nav_categories">Categories</a></li>
+                        <li class="no-mobile"><a href="/nav_subcategories">Subcategories</a></li>
                         <li class="search-container">
                             <form id="searchForm" action="">
                                 <input class="input-search" type="text" placeholder="Search.." name="search" required>
