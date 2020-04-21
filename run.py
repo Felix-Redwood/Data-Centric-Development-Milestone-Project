@@ -32,6 +32,23 @@ def nav_home():
 @app.route('/important_home', methods=['POST'])
 def important_home():
     return render_template("indeximportant.html", elements=mongo.db.story_elements.find( {'important': True} ).limit(10))
-    
+
+@app.route('/nav_elements', methods=['POST', 'GET'])
+def nav_elements():
+    return render_template("elements.html", elements=mongo.db.story_elements.find())
+
+@app.route('/important_elements', methods=['POST'])
+def important_elements():
+    return render_template("importantelements.html", elements=mongo.db.story_elements.find( {'important': True} ))
+
+@app.route('/nav_categories', methods=['POST', 'GET'])
+def nav_categories():
+    subcategories = mongo.db.subcategories.find()
+    categories=mongo.db.categories.find()
+    subcat_name = str(mongo.db.subcategories.category_name)
+    cat_name = str(mongo.db.categories.category_name)
+    return render_template("categories.html", categories=mongo.db.categories.find(), subcategories=mongo.db.subcategories.find(), cat_name=cat_name, subcat_name=subcat_name)
+
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
+    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=False)
+

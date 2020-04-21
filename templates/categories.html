@@ -2,6 +2,54 @@
 
 <div class="row">
 
+    <h3>Your Story's Categories:</h3>
+    <br>
+
 </div>
+
+<ul class="collapsible" data-collapsible="expandable">
+    {% for category in categories %}
+    <li>
+        <div class="collapsible-header">
+            <div class="col s9">
+                <strong>{{category.category_name.capitalize()}}</strong>
+            </div>
+
+            <div class="col s3">
+                <i class="material-icons">expand_more</i>
+            </div>
+        </div>
+
+        <div class="collapsible-body">
+            <p>
+                {{category.category_description}}
+            </p>
+            <br>
+            <h6>Subcategories:</h6>
+            <ul class="collapsible collapsible-contained" data-collapsible="expandable">
+                {% for subcategory in subcategories %}
+                {% if subcat_name == cat_name %}
+                <li>
+                    <div class="collapsible-header">
+                        <div class="col s9">
+                            <strong>{{subcategory.subcategory.capitalize()}}</strong>
+                        </div>
+
+                        <div class="col s3">
+                            <i class="material-icons">expand_more</i>
+                        </div>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>{{subcategory.subcategory_description}}</p>
+                    </div>
+                </li>
+                {% else %}
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
