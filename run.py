@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-
 app = Flask(__name__)
 
 def import_mongouri():
@@ -33,6 +32,21 @@ def nav_home():
 def important_home():
     return render_template("indeximportant.html", elements=mongo.db.story_elements.find( {'important': True} ).limit(10))
 
+@app.route('/toggle_element_important_home/<element_id>', methods=['POST'])
+def toggle_element_important_home(element_id):
+    importantbool = mongo.db.story_elements.find({'_id': ObjectId(element_id)})
+    if importantbool({'important': True}):
+        mongo.db.story_elements.updateOne(
+       {'_id': ObjectId(element_id)},
+       {'$set': { "important.$" : False }}
+        )
+    else:
+        mongo.db.story_elements.updateOne(
+       {'_id': ObjectId(element_id)},
+       {'$set': { "important.$" : True }}
+        )
+    return render_template("index.html", elements=mongo.db.story_elements.find().limit(10))
+
 @app.route('/nav_elements', methods=['POST', 'GET'])
 def nav_elements():
     return render_template("elements.html", elements=mongo.db.story_elements.find())
@@ -40,6 +54,22 @@ def nav_elements():
 @app.route('/important_elements', methods=['POST'])
 def important_elements():
     return render_template("importantelements.html", elements=mongo.db.story_elements.find( {'important': True} ))
+
+@app.route('/toggle_element_important_elements/<element_id>', methods=['POST'])
+def toggle_element_important_elements(element_id):
+    importantbool = mongo.db.story_elements.find({'_id': ObjectId(element_id)})
+    if importantbool({'important': True}):
+        mongo.db.story_elements.updateOne(
+       {'_id': ObjectId(element_id)},
+       {'$set': { "important.$" : False }}
+        )
+    else:
+        mongo.db.story_elements.updateOne(
+       {'_id': ObjectId(element_id)},
+       {'$set': { "important.$" : True }}
+        )
+    return render_template("elements.html", elements=mongo.db.story_elements.find())
+
 
 @app.route('/nav_categories', methods=['POST', 'GET'])
 def nav_categories():
@@ -60,6 +90,11 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
+
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('nav_categories'))
 
 @app.route('/nav_subcategories', methods=['POST', 'GET'])
 def nav_subcategories():
