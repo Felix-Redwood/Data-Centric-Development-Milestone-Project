@@ -49,6 +49,22 @@ def nav_categories():
     cat_name = str(mongo.db.categories.category_name)
     return render_template("categories.html", categories=mongo.db.categories.find(), subcategories=mongo.db.subcategories.find(), cat_name=cat_name, subcat_name=subcat_name)
 
+@app.route('/insert_category', methods=['POST'])
+def insert_category():
+    categories = mongo.db.categories
+    category_doc = ({"category_name": request.form.get('category_name')},
+                    {"category_description": request.form.get('category_description')})
+    categories.insert_one(category_doc)
+    return redirect(url_for('nav_categories'))
+
+@app.route('/add_category')
+def add_category():
+    return render_template('addcategory.html')
+
+@app.route('/nav_subcategories', methods=['POST', 'GET'])
+def nav_subcategories():
+    return render_template("subcategories.html", subcategories=mongo.db.subcategories.find())
+
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=False)
+    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
 
