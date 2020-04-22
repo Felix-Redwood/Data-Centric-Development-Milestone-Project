@@ -19,8 +19,8 @@
     {% for element in elements %}
     <li>
         <div class="collapsible-header">
-            <a href="{{url_for('', element_id=element._id)}}" class="waves-effect waves-light btn btn-small ">VIEW/EDIT</a>
-            <a href="{{url_for('', element_id=element._id)}}" class="waves-effect waves-light btn btn-small ">DELETE</a>
+            <a href="" class="waves-effect waves-light btn btn-small ">VIEW/EDIT</a>
+            <a href="" class="waves-effect waves-light btn btn-small ">DELETE</a>
             <div class="col s9">
                 <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong>
             </div>
