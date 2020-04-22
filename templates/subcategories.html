@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block title %}Subcategories{% endblock title %} {% block content %}
+
+<div class="row">
+
+    <h3>Your Story's Subcategories:</h3>
+    <br>
+
+</div>
+
+<ul class="collapsible" data-collapsible="expandable">
+    {% for subcategory in subcategories %}
+    <li>
+        <div class="collapsible-header">
+            <div class="col s9">
+                <strong>{{subcategory.subcategory.capitalize()}}</strong>
+            </div>
+
+            <div class="col s3">
+                <i class="material-icons">expand_more</i>
+            </div>
+        </div>
+
+        <div class="collapsible-body">
+            <h6>Main Category: {{subcategory.category_name.capitalize()}}</h6>
+            <p>
+                {{subcategory.subcategory_descripton}}
+            </p>
+            <br>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
