@@ -73,11 +73,7 @@ def toggle_element_important_elements(element_id):
 
 @app.route('/nav_categories', methods=['POST', 'GET'])
 def nav_categories():
-    subcategories = mongo.db.subcategories.find()
-    categories=mongo.db.categories.find()
-    subcat_name = str(mongo.db.subcategories.category_name)
-    cat_name = str(mongo.db.categories.category_name)
-    return render_template("categories.html", categories=mongo.db.categories.find(), subcategories=mongo.db.subcategories.find(), cat_name=cat_name, subcat_name=subcat_name)
+    return render_template("categories.html", categories=mongo.db.categories.find(), subcategories=mongo.db.subcategories.find())
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
