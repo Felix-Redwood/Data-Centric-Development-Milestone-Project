@@ -3,10 +3,9 @@
 <div class="row">
 
     <h2>StoryBoard</h2>
-    <p class="justify">StoryBoard is a simple program, designed to help YOU, the writer, to keep track of your story. Used by filmmakers, writers and
-     tabletop gamers alike, StoryBoard is the #1 program to keep track of your project.</p>
-     <p class="justify">Follow us on <a class="link-fade-blue" href="#">Facebook</a>, <a class="link-fade-blue" href="#">Twitter</a> and 
-     <a class="link-fade-blue" href="#">Instagram</a> to recieve updates, participate in community activities and win prizes!</p>
+    <p class="justify">StoryBoard is a simple program, designed to help YOU, the writer, to keep track of your story. Used by filmmakers, writers and tabletop gamers alike, StoryBoard is the #1 program to keep track of your project.</p>
+    <p class="justify">Follow us on <a class="link-fade-blue" href="#">Facebook</a>, <a class="link-fade-blue" href="#">Twitter</a> and
+        <a class="link-fade-blue" href="#">Instagram</a> to recieve updates, participate in community activities and win prizes!</p>
 
 </div>
 
@@ -20,6 +19,8 @@
     {% for element in elements %}
     <li>
         <div class="collapsible-header">
+            <a href="{{url_for('', element_id=element._id)}}" class="waves-effect waves-light btn btn-small ">VIEW/EDIT</a>
+            <a href="{{url_for('', element_id=element._id)}}" class="waves-effect waves-light btn btn-small ">DELETE</a>
             <div class="col s9">
                 <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong>
             </div>
@@ -33,10 +34,10 @@
             <span class="truncate">
           {{element.element_vignette}}
           </span>
-          <br>
+            <br>
             <div class="row">
                 {% if element.important %}
-                <form action="{{ url_for('nav_home') }}" method="POST" class="importantSwitch">
+                <form action="{{url_for('toggle_element_important_home', element_id=element._id)}}" method="POST" class="importantSwitch">
                     <div class="switch">
                         <label>
       Important:
@@ -46,7 +47,7 @@
                     </div>
                 </form>
                 {% else %}
-                <form action="{{ url_for('nav_home') }}" method="POST" class="importantSwitch">
+                <form action="{{url_for('toggle_element_important_home', element_id=element._id)}}" method="POST" class="importantSwitch">
                     <div class="switch">
                         <label>
       Important:
@@ -63,6 +64,4 @@
 </ul>
 <small>This page will only show 10 of your story elements. To see them all, go to your <a class="link-fade-blue" href="/nav_elements">story elements</a> page</small>
 <br>
-<br>
-
-{% endblock content %}
+<br> {% endblock content %}

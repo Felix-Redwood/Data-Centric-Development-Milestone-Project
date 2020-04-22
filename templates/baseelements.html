@@ -45,7 +45,7 @@
             <br>
             <div class="row">
                 {% if element.important %}
-                <form action="{{ url_for('nav_home') }}" method="POST" class="importantSwitch">
+                <form action="{{url_for('toggle_element_important_elements', element_id=element._id)}}" method="POST" class="importantSwitch">
                     <div class="switch">
                         <label>
       Important:
@@ -55,7 +55,7 @@
                     </div>
                 </form>
                 {% else %}
-                <form action="{{ url_for('nav_home') }}" method="POST" class="importantSwitch">
+                <form action="{{url_for('toggle_element_important_elements', element_id=element._id)}}" method="POST" class="importantSwitch">
                     <div class="switch">
                         <label>
       Important:
