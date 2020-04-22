@@ -11,6 +11,8 @@
     {% for category in categories %}
     <li>
         <div class="collapsible-header">
+            <a href="{{url_for('', category_id=category._id)}}" class="waves-effect waves-light btn btn-small">VIEW/EDIT</a>
+            <a href="{{url_for('', category_id=category._id)}}" class="waves-effect waves-light btn btn-small">DELETE</a>
             <div class="col s9">
                 <strong>{{category.category_name.capitalize()}}</strong>
             </div>
@@ -27,8 +29,7 @@
             <br>
             <h6>Subcategories:</h6>
             <ul class="collapsible collapsible-contained" data-collapsible="expandable">
-                {% for subcategory in subcategories %}
-                {% if subcat_name == cat_name %}
+                {% for subcategory in subcategories %} {% if subcat_name == cat_name %}
                 <li>
                     <div class="collapsible-header">
                         <div class="col s9">
@@ -43,13 +44,15 @@
                         <p>{{subcategory.subcategory_description}}</p>
                     </div>
                 </li>
-                {% else %}
-                {% endif %}
-                {% endfor %}
+                {% else %} {% endif %} {% endfor %}
             </ul>
         </div>
     </li>
     {% endfor %}
 </ul>
+
+<div class="row">
+    <a href="{{ url_for('add_category') }}" class="waves-effect waves-light btn"><i class="material-icons right no-mobile">add_playlist</i>New Category</a>
+</div>
 
 {% endblock %}
