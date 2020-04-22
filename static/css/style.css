@@ -27,7 +27,19 @@ main {
 
 .collapsible-contained {
     width: 80%;
-    height: 3em;
+}
+
+#collapsible-row {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.collapsible-btn {
+    margin-right: 0.3em;
+}
+
+.width100 {
+    width: 100%;
 }
 
 #mobileNav li {
@@ -246,6 +258,21 @@ navbr {
     .container {
     /* use of important to improve UX on all devices */
     width: 85% !important;
+    }
+    .collapsible-button {
+        margin-right: 0.5em;
+    }
+    #collapsible-button-container a {
+        padding: 0.4em;
+        vertical-align: middle;
+    }
+    #collapsible-row {
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+    }
+    #collapsible-row div {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

@@ -34,18 +34,21 @@ def important_home():
 
 @app.route('/toggle_element_important_home/<element_id>', methods=['POST'])
 def toggle_element_important_home(element_id):
-    importantbool = mongo.db.story_elements.find({'_id': ObjectId(element_id)})
-    if importantbool({'important': True}):
-        mongo.db.story_elements.updateOne(
-       {'_id': ObjectId(element_id)},
-       {'$set': { "important.$" : False }}
-        )
-    else:
-        mongo.db.story_elements.updateOne(
-       {'_id': ObjectId(element_id)},
-       {'$set': { "important.$" : True }}
-        )
+    print(element_id)
+    importantbool = mongo.db.story_elements.find_one({'_id': ObjectId(element_id)})
+    print(importantbool)
+#    if importantbool['important'] == True:
+#        mongo.db.story_elements.updateOne(
+#       {'_id': ObjectId(element_id)},
+#       {'$set': { "important.$" : False }}
+#        )
+#    else:
+#        mongo.db.story_elements.updateOne(
+#       {'_id': ObjectId(element_id)},
+#       {'$set': { "important.$" : True }}
+#        )
     return render_template("index.html", elements=mongo.db.story_elements.find().limit(10))
+    
 
 @app.route('/nav_elements', methods=['POST', 'GET'])
 def nav_elements():
@@ -58,7 +61,7 @@ def important_elements():
 @app.route('/toggle_element_important_elements/<element_id>', methods=['POST'])
 def toggle_element_important_elements(element_id):
     importantbool = mongo.db.story_elements.find({'_id': ObjectId(element_id)})
-    if importantbool({'important': True}):
+    if importantbool['important'] == True:
         mongo.db.story_elements.updateOne(
        {'_id': ObjectId(element_id)},
        {'$set': { "important.$" : False }}
@@ -70,7 +73,6 @@ def toggle_element_important_elements(element_id):
         )
     return render_template("elements.html", elements=mongo.db.story_elements.find())
 
-
 @app.route('/nav_categories', methods=['POST', 'GET'])
 def nav_categories():
     return render_template("categories.html", categories=mongo.db.categories.find(), subcategories=mongo.db.subcategories.find())
@@ -78,9 +80,7 @@ def nav_categories():
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
     categories = mongo.db.categories
-    category_doc = ({"category_name": request.form.get('category_name')},
-                    {"category_description": request.form.get('category_description')})
-    categories.insert_one(category_doc)
+    categories.insert_one(request.form.to_dict())
     return redirect(url_for('nav_categories'))
 
 @app.route('/add_category')
