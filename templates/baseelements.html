@@ -4,45 +4,89 @@
 
     <h2>Your Story Elements:</h2>
     {% block important %} {% endblock important %}
-    
+
 </div>
 
 <ul class="collapsible" data-collapsible="expandable">
     {% for element in elements %}
     <li>
         <div class="collapsible-header">
-            <div class="col s9">
-                <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong>
-            </div>
+            <div class="row" id="collapsible-row">
 
-            <div class="col s3">
-                <i class="material-icons">expand_more</i>
+                <div class="col s4 m6">
+                    <strong>{{element.category_name.capitalize()}}: {{element.element_name.capitalize()}}</strong><i class="material-icons">expand_more</i>
+                </div>
+                <div class="col s8 m6" id="collapsible-button-container">
+                    <a href="{{url_for('edit_element', element_id=element._id)}}" class="waves-effect waves-light btn btn-small right collapsible-btn">VIEW</a>
+                    <a href="{{url_for('delete_element', element_id=element._id)}}" class="waves-effect waves-light btn btn-small right collapsible-btn">DELETE</a>
+                </div>
             </div>
         </div>
 
         <div class="collapsible-body">
-            <h5>Vignette:</h5>
-            <span class="truncate">
-                <p>
-          {{element.element_vignette}}
-          </p>
-          </span>
-            <br>
-            <h5>Description:</h5>
-            <p>
-                {{element.element_description}}
-            </p>
-            <br>
-            <h5>Events:</h5>
-            <p>
-                {{element.events}}
-            </p>
-            <br>
-            <h5>Miscellenious:</h5>
-            <p>
-                {{element.misc}}
-            </p>
-            <br>
+            <form action="" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">library_books</i>
+                        <select id="category">
+                <option value="" disabled selected>{{element.category_name.capitalize()}}</option>
+                </select>
+                        <label>Category Name:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {% if element.subcategory %}
+                        <i class="material-icons prefix">subdirectory_arrow_right</i>
+                        <select id="category">
+                <option value="" disabled selected>{{element.subcategory.capitalize()}}</option>
+                </select>
+                        <label>Subcategory:</label>
+                        {% else %}
+                        <i class="material-icons prefix">subdirectory_arrow_right</i>
+                        <select id="category">
+                <option value="" disabled selected>None</option>
+                </select>
+                        <label>Subcategory:</label>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">short_text</i>
+                        <input id="noEditForm" type="text" class="validate" value="{{element.element_name}}" disabled>
+                        <label for="icon_prefix">Name:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">vignette</i>
+                        <textarea id="noEditForm" type="text" class="materialize-textarea" disabled>{{element.element_vignette}}</textarea>
+                        <label for="icon_telephone">Vignette:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">view_headline</i>
+                        <textarea id="noEditForm" type="text" class="materialize-textarea" disabled>{{element.element_description}}</textarea>
+                        <label for="icon_telephone">Description:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">event_note</i>
+                        <textarea id="noEditForm" type="text" class="materialize-textarea" disabled>{{element.events}}</textarea>
+                        <label for="icon_telephone">Events:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">add</i>
+                        <textarea id="noEditForm" type="text" class="materialize-textarea" disabled>{{element.misc}}</textarea>
+                        <label for="icon_telephone">Misc:</label>
+                    </div>
+                </div>
+            </form>
             <div class="row">
                 {% if element.important %}
                 <form action="{{url_for('toggle_element_important_elements', element_id=element._id)}}" method="POST" class="importantSwitch">
