@@ -37,16 +37,16 @@ def toggle_element_important_home(element_id):
     print(element_id)
     importantbool = mongo.db.story_elements.find_one({'_id': ObjectId(element_id)})
     print(importantbool)
-#    if importantbool['important'] == True:
-#        mongo.db.story_elements.updateOne(
-#       {'_id': ObjectId(element_id)},
-#       {'$set': { "important.$" : False }}
-#        )
-#    else:
-#        mongo.db.story_elements.updateOne(
-#       {'_id': ObjectId(element_id)},
-#       {'$set': { "important.$" : True }}
-#        )
+    if importantbool['important'] == True:
+        mongo.db.story_elements.update_one(
+       {'_id': ObjectId(element_id)},
+       {'$set': { "important" : False }}
+        )
+    else:
+        mongo.db.story_elements.update_one(
+       {'_id': ObjectId(element_id)},
+       {'$set': { "important" : True }}
+        )
     return render_template("index.html", elements=mongo.db.story_elements.find().limit(10))
 
 @app.route('/delete_element_home/<element_id>')
