@@ -26,8 +26,8 @@
                         <li class="no-mobile"><a href="/nav_categories">Categories</a></li>
                         <li class="no-mobile"><a href="/nav_subcategories">Subcategories</a></li>
                         <li class="search-container">
-                            <form id="searchForm" action="">
-                                <input class="input-search" type="text" placeholder="Search.." name="search" required>
+                            <form id="searchForm" action="{{url_for('search_results')}}">
+                                <input class="input-search" type="text" placeholder="Search.." name="search_inquiry" id="search_inquiry" required>
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </form>
                         </li>
@@ -96,10 +96,7 @@
                 belowOrigin: true
             });
             $("#toggleimportant").on("change", "input:checkbox", function() {
-                $("#toggleimportant").submit();
-            });
-            $(".importantSwitch").on("change", "input:checkbox", function() {
-                $(".importantSwitch").submit();
+             $("#toggleimportant").submit();
             });
         });
     </script>
