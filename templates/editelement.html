@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %}Edit Story Element{% endblock %} {% block content %}
+
+<h2>Your Story Element:</h2>
+<div class="row">
+    <form action="{{ url_for('update_element', element_id=element._id) }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">library_books</i>
+                <select id="category" name="category_name">
+                <option value="" disabled selected>Select Category</option>
+                    {% for cat in categories %}
+                        {% if cat.category_name == element.category_name %}
+                            <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+                        {% else %}
+                            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Category Name:</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subdirectory_arrow_right</i>
+                <select id="category" name="subcategory">
+                <option value="" disabled selected>Select Subcategory</option>
+                    {% for subcat in subcategories %}
+                    {% if subcat.category_name == element.category_name %}
+                        {% if subcat.subcategory == element.subcategory %}
+                            <option value="{{subcat.subcategory}}" selected>{{subcat.subcategory}}</option>
+                        {% else %}
+                            <option value="{{subcat.subcategory}}">{{subcat.subcategory}}</option>
+                        {% endif %}
+                    {% else %}
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <label>Subcategory Name:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">short_text</i>
+                <input id="element_name" name="element_name" type="text" class="validate" value="{{element.element_name}}">
+                <label for="icon_prefix">Name:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">vignette</i>
+                <textarea id="element_vignette" name="element_vignette" type="text" class="materialize-textarea" data-length="240" value="{{element.element_vignette}}">{{element.element_vignette}}</textarea>
+                <label for="icon_telephone">Vignette:</label>
+            </div>
+            <small><em>A Vignette is a short, simple description</em></small>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">view_headline</i>
+                <textarea id="element_description" name="element_description" type="text" class="materialize-textarea" value="{{element.element_description}}">{{element.element_description}}</textarea>
+                <label for="icon_telephone">Description:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">event_note</i>
+                <textarea id="events" name="events" type="text" class="materialize-textarea" value="{{element.events}}">{{element.events}}</textarea>
+                <label for="icon_telephone">Events:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">add</i>
+                <textarea id="misc" name="misc" type="text" class="materialize-textarea" value="{{element.misc}}">{{element.misc}}</textarea>
+                <label for="icon_telephone">Misc:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="switch">
+                <label>
+                    {% if element.important %}
+                    <input id="important" name="important" type="checkbox" checked>
+                    {% else %}
+                    <input id="important" name="important" type="checkbox">
+                    {% endif %}
+                    <span class="lever"></span>
+                  Important?
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Done
+                <i class="material-icons right">add_circle</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
