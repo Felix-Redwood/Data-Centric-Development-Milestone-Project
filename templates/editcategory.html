@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %}Edit Category{% endblock %} {% block content %}
+
+<h2>Your Category:</h2>
+<div class="row">
+    <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">short_text</i>
+                <input id="category_name" name="category_name" type="text" class="validate" value="{{category.category_name.capitalize()}}" required>
+                <label for="icon_prefix">Name:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">view_headline</i>
+                <textarea id="category_description" name="category_description" type="text" class="materialize-textarea" value="{{category.category_description}}">{{category.category_description}}</textarea>
+                <label for="icon_telephone">Description:</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Done
+                <i class="material-icons right">add_circle</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
