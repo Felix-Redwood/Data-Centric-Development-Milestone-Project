@@ -200,6 +200,13 @@ navbr {
 
 #noEditForm {
     color: #000;
+    min-height: 2rem !important;
+    height: 2rem !important;
+}
+
+#toggleImportantButton {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
 }
 
 .footer-social li {
