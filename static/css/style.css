@@ -198,6 +198,10 @@ navbr {
     position: relative;
 }
 
+#noEditForm {
+    color: #000;
+}
+
 .footer-social li {
     display: inline;
     padding-left: 0.5em;
