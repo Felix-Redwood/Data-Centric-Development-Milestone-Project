@@ -87,28 +87,20 @@
                     </div>
                 </div>
             </form>
-            <div class="row">
-                {% if element.important %}
-                <form action="{{url_for('toggle_element_important_elements', element_id=element._id)}}" method="POST" class="importantSwitch">
+            <div class="row no-mobile">
+                <form action="{{url_for('toggle_element_important_elements', element_id=element._id)}}" method="POST">
                     <div class="switch">
                         <label>
       Important:
-      <input type="checkbox" checked>
+      <input type="checkbox" {% if element.important == True %}checked{% endif %}>
       <span class="lever"></span>
     </label>
                     </div>
+                    <br>
+                    <button id="toggleImportantButton" class="btn waves-effect waves-light btn-flat" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
                 </form>
-                {% else %}
-                <form action="{{url_for('toggle_element_important_elements', element_id=element._id)}}" method="POST" class="importantSwitch">
-                    <div class="switch">
-                        <label>
-      Important:
-      <input type="checkbox">
-      <span class="lever"></span>
-    </label>
-                    </div>
-                </form>
-                {% endif %}
             </div>
         </div>
     </li>

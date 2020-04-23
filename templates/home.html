@@ -33,32 +33,30 @@
         </div>
 
         <div class="collapsible-body">
-            <span class="truncate">
-          {{element.element_vignette}}
-          </span>
-            <br>
-            <div class="row">
-                {% if element.important == True %}
-                <form action="{{url_for('toggle_element_important_home', element_id=element._id)}}" method="POST" class="importantSwitch">
+            <form action="" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">vignette</i>
+                        <textarea id="noEditForm" type="text" class="materialize-textarea" disabled>{{element.element_vignette}}</textarea>
+                        <label for="icon_telephone">Vignette:</label>
+                    </div>
+                </div>
+            </form>
+            <small></small>
+            <div class="row no-mobile">
+                <form action="{{url_for('toggle_element_important_home', element_id=element._id)}}" method="POST">
                     <div class="switch">
                         <label>
       Important:
-      <input type="checkbox" checked>
+      <input type="checkbox" {% if element.important == True %}checked{% endif %}>
       <span class="lever"></span>
     </label>
                     </div>
+                    <br>
+                    <button id="toggleImportantButton" class="btn waves-effect waves-light btn-flat" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
                 </form>
-                {% else %}
-                <form action="{{url_for('toggle_element_important_home', element_id=element._id)}}" method="POST" class="importantSwitch">
-                    <div class="switch">
-                        <label>
-      Important:
-      <input type="checkbox">
-      <span class="lever"></span>
-    </label>
-                    </div>
-                </form>
-                {% endif %}
             </div>
         </div>
     </li>
