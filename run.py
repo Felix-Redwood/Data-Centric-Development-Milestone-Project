@@ -107,7 +107,7 @@ def delete_element(element_id):
 
 @app.route('/nav_categories', methods=['POST', 'GET'])
 def nav_categories():
-    return render_template("categories.html", categories=mongo.db.categories.find(), subcategories=mongo.db.subcategories.find())
+    return render_template("categories.html", categories=list(mongo.db.categories.find()), subcategories=list(mongo.db.subcategories.find()))
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
@@ -181,9 +181,6 @@ def search_results():
     categories_results = mongo.db.categories.find({'$text': {'$search':request.form.get('search_inquiry')}})
     subcategories_results = mongo.db.subcategories.find({'$text': {'$search':request.form.get('search_inquiry')}})
     elements_results = mongo.db.story_elements.find({'$text': {'$search':request.form.get('search_inquiry')}})
-    print(categories_results)
-    print(subcategories_results)
-    print(elements_results)
     return render_template("searchresults.html", categories=categories_results, subcategories=subcategories_results, elements=elements_results)
 
 if __name__ == '__main__':
