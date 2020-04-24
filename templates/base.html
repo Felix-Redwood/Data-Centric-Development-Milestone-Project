@@ -26,7 +26,7 @@
                         <li class="no-mobile"><a href="/nav_categories">Categories</a></li>
                         <li class="no-mobile"><a href="/nav_subcategories">Subcategories</a></li>
                         <li class="search-container">
-                            <form id="searchForm" action="{{url_for('search_results')}}">
+                            <form id="searchForm" action="{{url_for('search_results')}}" method="POST">
                                 <input class="input-search" type="text" placeholder="Search.." name="search_inquiry" id="search_inquiry" required>
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </form>
