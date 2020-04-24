@@ -64,7 +64,7 @@ def important_elements():
 
 @app.route('/toggle_element_important_elements/<element_id>', methods=['POST'])
 def toggle_element_important_elements(element_id):
-    importantbool = mongo.db.story_elements.find({'_id': ObjectId(element_id)})
+    importantbool = mongo.db.story_elements.find_one({'_id': ObjectId(element_id)})
     if importantbool['important'] == True:
         mongo.db.story_elements.update_one(
        {'_id': ObjectId(element_id)},
@@ -86,6 +86,10 @@ def edit_element(element_id):
 
 @app.route('/update_element/<element_id>', methods=['POST'])
 def update_element(element_id):
+    if request.form.get('important') == 'on':
+        important = True
+    else:
+        important = False
     elements = mongo.db.story_elements
     elements.update( {'_id': ObjectId(element_id)},
     {
@@ -96,9 +100,19 @@ def update_element(element_id):
      'element_description':request.form.get('element_description'),
      'events':request.form.get('events'),
      'misc':request.form.get('misc'),
-     'important':request.form.get('important')
+     'important':(important)
     })
     return redirect(url_for('nav_elements'))
+
+@app.route('/insert_element', methods=['POST'])
+def insert_element():
+    elements = mongo.db.story_elements
+    elements.insert_one(request.form.to_dict())
+    return redirect(url_for('nav_elements'))
+
+@app.route('/add_element')
+def add_element():
+    return render_template('addelement.html', categories=list(mongo.db.categories.find()), subcategories=list(mongo.db.subcategories.find()))
 
 @app.route('/delete_element/<element_id>')
 def delete_element(element_id):
