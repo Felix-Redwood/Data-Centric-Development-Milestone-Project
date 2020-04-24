@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %}Edit Category{% endblock %} {% block content %}
 
-<h2>Your Category:</h2>
+<h2>Your Subcategory:</h2>
 <div class="row">
     <form action="{{ url_for('update_subcategory', subcategory_id=subcategory._id) }}" method="POST" class="col s12">
         <div class="row">
@@ -9,7 +9,7 @@
                 <select id="category" name="category_name">
                 <option value="" disabled selected>Select Category</option>
                     {% for cat in categories %}
-                        {% if cat.category_name == subcategory.category_name %}
+                        {% if cat.category_name.lower() == subcategory.category_name.lower() %}
                             <option value="{{cat.category_name}}" selected>{{cat.category_name.capitalize()}}</option>
                         {% else %}
                             <option value="{{cat.category_name}}">{{cat.category_name.capitalize()}}</option>
