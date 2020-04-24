@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Search Results!{% endblock title %} {% block content %}
+
+<div class="row">
+
+    <h2>Your Search Results:</h2>
+
+</div>
+
+<div class="row">
+    <div class="collection">
+        {% for element in elements %}
+        <a href="{{ url_for('edit_element', element_id=element._id) }}" class="collection-item">{{element.element_name}}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="collection">
+        <a href="#!" class="collection-item">Alvin</a>
+        <a href="#!" class="collection-item active">Alvin</a>
+        <a href="#!" class="collection-item">Alvin</a>
+        <a href="#!" class="collection-item">Alvin</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="collection">
+        <a href="#!" class="collection-item">Alvin</a>
+        <a href="#!" class="collection-item active">Alvin</a>
+        <a href="#!" class="collection-item">Alvin</a>
+        <a href="#!" class="collection-item">Alvin</a>
+    </div>
+</div>
+
+{% endblock content %}
