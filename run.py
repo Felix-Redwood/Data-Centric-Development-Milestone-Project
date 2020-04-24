@@ -66,14 +66,14 @@ def important_elements():
 def toggle_element_important_elements(element_id):
     importantbool = mongo.db.story_elements.find({'_id': ObjectId(element_id)})
     if importantbool['important'] == True:
-        mongo.db.story_elements.updateOne(
+        mongo.db.story_elements.update_one(
        {'_id': ObjectId(element_id)},
-       {'$set': { "important.$" : False }}
+       {'$set': { "important" : False }}
         )
     else:
-        mongo.db.story_elements.updateOne(
+        mongo.db.story_elements.update_one(
        {'_id': ObjectId(element_id)},
-       {'$set': { "important.$" : True }}
+       {'$set': { "important" : True }}
         )
     return render_template("elements.html", elements=mongo.db.story_elements.find())
 
@@ -174,6 +174,17 @@ def update_subcategory(subcategory_id):
 def delete_subcategory(subcategory_id):
     mongo.db.subcategories.remove({'_id': ObjectId(subcategory_id)})
     return redirect(url_for('nav_subcategories'))
+
+@app.route('/search_results', methods=['POST', 'GET'])
+def search_results():
+#    search_inquiry = request.form.get('search_inquiry')
+    categories_results = mongo.db.categories.find({'$text': {'$search':request.form.get('search_inquiry')}})
+    subcategories_results = mongo.db.subcategories.find({'$text': {'$search':request.form.get('search_inquiry')}})
+    elements_results = mongo.db.story_elements.find({'$text': {'$search':request.form.get('search_inquiry')}})
+    print(categories_results)
+    print(subcategories_results)
+    print(elements_results)
+    return render_template("searchresults.html", categories=categories_results, subcategories=subcategories_results, elements=elements_results)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
