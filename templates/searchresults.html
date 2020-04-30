@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block title %}Search Results!{% endblock title %} {% block content %}
+
+<div class="row">
+
+    <h2>Your Search Results:</h2>
+
+</div>
+
+<h4>Elements:</h4>
+<div class="row">
+    <div class="collection">
+        {% for element in elements %}
+        <a href="{{ url_for('edit_element', element_id=element._id) }}" class="collection-item">{{element.element_name.capitalize()}}</a>
+        {% endfor %}
+    </div>
+</div>
+{% for element in elements %}
+{% else %}
+<h6>There are no Elements matching that search.</h6>
+{% endfor %}
+
+<br>
+
+<h4>Categories:</h4>
+<div class="row">
+    <div class="collection">
+        {% for category in categories %}
+        <a href="{{ url_for('edit_category', category_id=category._id) }}" class="collection-item">{{category.category_name.capitalize()}}</a>
+        {% endfor %}
+    </div>
+</div>
+{% for category in categories %}
+{% else %}
+<h6>There are no Categories matching that search.</h6>
+{% endfor %}
+
+<br>
+
+<h4>Subcategories:</h4>
+<div class="row">
+    <div class="collection">
+        {% for subcategory in subcategories %}
+        <a href="{{ url_for('edit_subcategory', subcategory_id=subcategory._id) }}" class="collection-item">{{subcategory.subcategory.capitalize()}}</a>
+        {% endfor %}
+    </div>
+</div>
+{% for subcategory in subcategories %}
+{% else %}
+<h6>There are no Subcategories matching that search.</h6>
+{% endfor %}
+
+<br>
+
+{% endblock content %}
