@@ -16,7 +16,7 @@
 </div>
 
 <ul class="collapsible" data-collapsible="accordion">
-    {% if elements %} {% for element in elements %}
+    {% for element in elements %}
     <li>
         <div class="collapsible-header">
             <div class="row" id="collapsible-row">
@@ -60,11 +60,11 @@
             </div>
         </div>
     </li>
-    {% endfor %} {% else %}
+    {% else %}
     <li>
         <h6>Oops! You have no story elements. Create some <a class="link-fade-blue" href="/nav_elements" target="_self">Here</a>.</h6>
     </li>
-    {% endif %}
+    {% endfor %}
 </ul>
 <small>This page will only show 10 of your story elements. To see them all, go to your <a class="link-fade-blue" href="/nav_elements">story elements</a> page</small>
 <br>

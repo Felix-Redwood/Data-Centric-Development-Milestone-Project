@@ -5,7 +5,7 @@
     <form action="{{ url_for('update_subcategory', subcategory_id=subcategory._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">library_books</i>
+                <i class="material-icons prefix">short_text</i>
                 <select id="category" name="category_name">
                 <option value="" disabled selected>Select Category</option>
                     {% for cat in categories %}
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">short_text</i>
+                <i class="material-icons prefix">subdirectory_arrow_right</i>
                 <input id="subcategory" name="subcategory" type="text" class="validate" value="{{subcategory.subcategory.capitalize()}}" required>
                 <label for="icon_prefix">Subcategory Name:</label>
             </div>
