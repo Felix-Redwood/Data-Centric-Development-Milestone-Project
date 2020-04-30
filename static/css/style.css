@@ -277,6 +277,10 @@ navbr {
         padding: 0.4em;
         vertical-align: middle;
     }
+    #collapsible-button-container a span {
+        position: relative;
+        top: -0.1em;
+    }
     #collapsible-row {
         padding-left: 0.4em;
         padding-right: 0.4em;
