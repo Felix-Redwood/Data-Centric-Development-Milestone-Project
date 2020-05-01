@@ -1,6 +1,8 @@
 /* When possible, opacity is used instead of background-color when creating transitions. Doing this means that we won't have to change the
 background-color every time we change the background*/
 
+/*Main Document*/
+
 body {
     display: flex;
     min-height: 100vh;
@@ -9,10 +11,6 @@ body {
 
 main {
     flex: 1 0 auto;
-}
-
-.justify {
-    text-align: justify;
 }
 
 .base-container {
@@ -25,22 +23,7 @@ main {
     width: 90% !important;
 }
 
-.collapsible-contained {
-    width: 80%;
-}
-
-#collapsible-row {
-    width: 100%;
-    margin-bottom: 0;
-}
-
-.collapsible-btn {
-    margin-right: 0.3em;
-}
-
-.width100 {
-    width: 100%;
-}
+/*Image Styling*/
 
 #mobileNav li {
     width: 100%;
@@ -54,6 +37,14 @@ main {
 #navLogo logotext {
     position: absolute;
     padding-left: 0.4em;
+}
+
+
+.img-container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .head-logo {
@@ -77,6 +68,8 @@ main {
     width: 100%;
 }
 
+/*Link Styling*/
+
 .link-fade-blue:hover {
     color: #7733ff;
     -webkit-transition: color 0.3s ease-in-out;
@@ -97,6 +90,8 @@ main {
     text-decoration: none;
     color: #fff;
 }
+
+/*Navbar*/
 
 #StoryBoardNav {
     background-color: #008000;
@@ -127,11 +122,11 @@ main {
     height: 100%;
 }
 
-.nav-wrapper {}
-
 navbr {
     width: 0.5em;
 }
+
+/*Search Bar*/
 
 .search-container {
     width: 20em;
@@ -183,31 +178,7 @@ navbr {
     transition: background-color 0.3s ease-in-out;
 }
 
-.dropdown-content li>option {
-    font-size: 16px;
-    color: #26a69a;
-    display: block;
-    line-height: 22px;
-    padding: 14px 16px;
-}
-
-.img-container-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-#noEditForm {
-    color: #000;
-    min-height: 2rem !important;
-    height: 2rem !important;
-}
-
-#toggleImportantButton {
-    padding-left: 0.3em;
-    padding-right: 0.3em;
-}
+/*Footer*/
 
 .footer-social li {
     display: inline;
@@ -235,6 +206,42 @@ navbr {
 .footer-copyright .container {
     max-height: 3.25em;
 }
+
+/*Miscellaneous*/
+
+#noEditForm {
+    color: #000;
+    min-height: 2rem !important;
+    height: 2rem !important;
+}
+
+#toggleImportantButton {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+.collapsible-contained {
+    width: 80%;
+}
+
+#collapsible-row {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.collapsible-btn {
+    margin-right: 0.3em;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.justify {
+    text-align: justify;
+}
+
+/*Media*/
 
 @media (max-width: 992px) {
     main, footer {
