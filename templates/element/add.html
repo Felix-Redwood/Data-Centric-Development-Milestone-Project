@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block title %}Add Element{% endblock title %} {% block content %}
+<!--Adds an Element.-->
 
 <h3>Add Element:</h3>
 <div class="row">
@@ -35,6 +36,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">vignette</i>
+                <!--The Vignette is just a short description, and so is given a data-length of 240 to keep it short. The
+                Vignette will also be queried when a search is made on the site, and so it needs to not have too much
+                needless data, otherwise the search results will not be relevant.-->
                 <textarea id="element_vignette" name="element_vignette" type="text" class="materialize-textarea" data-length="240"></textarea>
                 <label for="icon_telephone">Vignette:</label>
             </div>
@@ -43,6 +47,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">view_headline</i>
+                <!--Elements may have a lot of information that is needed in the description, so there is no set data-length
+                property here. The description also won't be queried when a search is made, and so there is no harm in having
+                needless information here.-->
                 <textarea id="element_description" name="element_description" type="text" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Description:</label>
             </div>

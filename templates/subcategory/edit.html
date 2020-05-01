@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block title %}Edit Category{% endblock %} {% block content %}
+<!--Edits an existing Subcategory.-->
 
 <h2>Your Subcategory:</h2>
 <div class="row">
@@ -8,6 +9,8 @@
                 <i class="material-icons prefix">short_text</i>
                 <select id="category" name="category_name">
                 <option value="" disabled selected>Select Category</option>
+                    <!--The category_name that is automatically selected will be the one assigned
+                    to the Subcategory.-->
                     {% for cat in categories %}
                         {% if cat.category_name.lower() == subcategory.category_name.lower() %}
                             <option value="{{cat.category_name}}" selected>{{cat.category_name.capitalize()}}</option>
@@ -29,7 +32,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">view_headline</i>
-                <textarea id="subcategory_description" name="subcategory_description" type="text" class="materialize-textarea" value="{{subcategory.subcategory_description}}">{{subcategory.subcategory_description}}</textarea>
+                <textarea id="subcategory_description" name="subcategory_description" type="text" data-length="140" class="materialize-textarea" value="{{subcategory.subcategory_description}}">{{subcategory.subcategory_description}}</textarea>
                 <label for="icon_telephone">Description:</label>
             </div>
         </div>
