@@ -22,20 +22,8 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">subdirectory_arrow_right</i>
-                <select id="category" name="subcategory">
-                <option value="" disabled selected>Select Subcategory</option>
-                    {% for subcat in subcategories %}
-                    {% if subcat.category_name.lower() == element.category_name.lower() %}
-                        {% if subcat.subcategory.lower() == element.subcategory.lower() %}
-                            <option value="{{subcat.subcategory}}" selected>{{subcat.subcategory.capitalize()}}</option>
-                        {% else %}
-                            <option value="{{subcat.subcategory}}">{{subcat.subcategory.capitalize()}}</option>
-                        {% endif %}
-                    {% else %}
-                    {% endif %}
-                    {% endfor %}
-                </select>
-                <label>Subcategory Name:</label>
+                <input type="text" id="category" name="subcategory" class="autocomplete">
+                <label for="autocomplete-input">Subcategory</label>
             </div>
         </div>
         <div class="row">
@@ -102,4 +90,14 @@
     </form>
 </div>
 
+{% endblock %} {% block js %}
+<script>
+    $(document).ready(function() {
+        $('input.autocomplete').autocomplete({
+            data: {
+                "basic-data": null
+            },
+        });
+    });
+</script>
 {% endblock %}
