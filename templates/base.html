@@ -37,7 +37,7 @@
                     <div class="col s12">
                         <ul class="tabs" id="navTabs">
                             <li class="tab col s3"><a target="_self" href="/nav_elements">Elements</a></li>
-                            <li class="tab col s3"><a target="_self" hhref="/nav_categories">Subcategories</a></li>
+                            <li class="tab col s3"><a target="_self" href="/nav_categories">Subcategories</a></li>
                             <li class="tab col s3"><a target="_self" href="/nav_subcategories">Categories</a></li>
                         </ul>
                     </div>
@@ -47,6 +47,9 @@
     </header>
     <main>
             {% block homepage %} {% endblock %}
+            <!--There is a line break here for mobile devices, as the tabs will increase the size of the navbar.
+            The line break is to push the content down and ensure that there is no overlapping-->
+            <br class="mobile-only">
         <div class="container base-container">
             {% block content %} {% endblock %}
         </div>
@@ -54,13 +57,17 @@
     <footer class="page-footer" id="StoryBoardFooter">
         <div class="container">
             <div class="row">
-                <div class="col l8 no-mobile">
-                    <h5 class="white-text">About StoryBoard</h5>
+                <div class="col l6 m6 no-mobile">
+                    <h5 class="white-text">About StoryBoard:</h5>
                     <p class="grey-text text-lighten-4">StoryBoard is a simple application, designed to help artists keep track of their stories.</p>
                 </div>
-                <div class="col l4 s12">
+                <div class="col l3 m3 s6">
+                    <h5 class="white-text"><a class="link-fade-white white-link" href="" target="_blank">Help Page:</a></h5>
+                    <p>Go to our <a class="link-fade-white white-link" href="" target="_blank">Help Page</a>.</p>
+                </div>
+                <div class="col l3 m3 s6">
                     <h5 class="white-text">Contact:</h5>
-                    <p>You can contact us at <a class="link-fade-white white-link" href="mailto:#" target="_blank">StoryBoard@gmail.com</a></p>
+                    <p>You can contact us <span class="no-mobile">at <a class="link-fade-white white-link" href="mailto:#" target="_blank">StoryBoard@gmail.com</a></span><span class="mobile-only"><a class="link-fade-white blue-link" href="" target="_blank"><bold>here</bold></a>.</span></p>
                 </div>
             </div>
         </div>
@@ -73,6 +80,9 @@
                     <div class="col m6 no-mobile">
                         <ul class="right footer-social">
                             <li>Social Links:</li>
+                            <!--The links do not show up on mobile devices, as they would be too small to click. They do show up on
+                            desktops, as well as on tablets, where they would be easier to click-->
+                            <!--The target is "_blank", because the user will want the link to open in a new window-->
                             <li><a class="grey-text text-lighten-3" href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
                             <li><a class="grey-text text-lighten-3" href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <li><a class="grey-text text-lighten-3" href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
