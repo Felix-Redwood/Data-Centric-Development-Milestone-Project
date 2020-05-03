@@ -91,6 +91,11 @@ main {
     color: #fff;
 }
 
+.blue-link {
+    text-decoration: none;
+    color: #adadeb;
+}
+
 /*Navbar*/
 
 #StoryBoardNav {
@@ -122,7 +127,7 @@ main {
     height: 100%;
 }
 
-navbr {
+navbar {
     width: 0.5em;
 }
 
@@ -178,6 +183,24 @@ navbr {
     transition: background-color 0.3s ease-in-out;
 }
 
+/* Help Page */
+
+#contentsButton {
+    width: 20%;
+    height: 3em;
+    padding-top: 0.4em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#contentsDropdown li a {
+    color: #0000EE;
+}
+
+.help-header {
+    color: #039be5;
+}
+
 /*Footer*/
 
 .footer-social li {
@@ -211,8 +234,6 @@ navbr {
 
 #noEditForm {
     color: #000;
-    min-height: 2rem !important;
-    height: 2rem !important;
 }
 
 #toggleImportantButton {
@@ -241,9 +262,13 @@ navbr {
     text-align: justify;
 }
 
+bold {
+    font-weight: bold;
+}
+
 /*Media*/
 
-@media (max-width: 992px) {
+@media (max-width: 640px) {
     main, footer {
         position: relative;
         top: 1.5em;
@@ -257,11 +282,6 @@ navbr {
     .brand-logo {
         /* use of !important to cancel out auto-centering in materialize */
         left: 7% !important;
-    }
-    #mobileMenu {
-        /* use of !important to cancel out automatic moving to the left in materialize */
-        position: static;
-        right: 2% !important;
     }
     .search-container {
         width: 100%;
@@ -298,7 +318,17 @@ navbr {
     }
 }
 
-@media (min-width: 993px) {
+@media (min-width: 640px) and (max-width: 960px) {
+    .no-tablet {
+        display: none;
+    }
+    .brand-logo {
+        /* use of !important to cancel out auto-centering in materialize */
+        left: 5% !important;
+    }
+}
+
+@media (min-width: 641px) {
     .mobile-only {
         display: none;
     }
