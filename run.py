@@ -3,6 +3,9 @@
 # 'categories' that help to render elements in each page.
 
 import os
+import json
+import pytest
+
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -119,7 +122,7 @@ def edit_element(element_id):
     return render_template("element/edit.html",
                             element=selected_element,
                             categories=all_categories,
-                            subcategories=all_subcategories)
+                            subcategories=list(all_subcategories))
 
 
 @app.route('/update_element/<element_id>', methods=['POST'])
@@ -270,10 +273,12 @@ def search_results():
     categories_results = mongo.db.categories.find({'$text': {'$search':request.form.get('search_inquiry')}})
     subcategories_results = mongo.db.subcategories.find({'$text': {'$search':request.form.get('search_inquiry')}})
     elements_results = mongo.db.story_elements.find({'$text': {'$search':request.form.get('search_inquiry')}})
+    print (categories_results)
     return render_template("searchresults.html",
                         categories=list(categories_results),
                         subcategories=list(subcategories_results),
                         elements=list(elements_results))
+
 
 
 """Miscellaneous"""
