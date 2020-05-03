@@ -7,6 +7,9 @@
 </div>
 
 <h4>Elements:</h4>
+<hr>
+<br>
+{% if elements %}
 <div class="row">
     <div class="collection">
         {% for element in elements %}
@@ -14,14 +17,21 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
 {% for element in elements %}
 {% else %}
 <h6>There are no Elements matching that search.</h6>
 {% endfor %}
+<small>Go to <a href="/nav_elements" class="link-fade-white">Elements Page</a></small>
 
+<br>
 <br>
 
 <h4>Categories:</h4>
+<hr>
+<br>
+{% if categories %}
+
 <div class="row">
     <div class="collection">
         {% for category in categories %}
@@ -29,14 +39,20 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
 {% for category in categories %}
 {% else %}
 <h6>There are no Categories matching that search.</h6>
 {% endfor %}
+<small>Go to <a href="/nav_categories" class="link-fade-white">Categories Page</a></small>
 
+<br>
 <br>
 
 <h4>Subcategories:</h4>
+<hr>
+<br>
+{% if subcategories %}
 <div class="row">
     <div class="collection">
         {% for subcategory in subcategories %}
@@ -44,11 +60,15 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
 {% for subcategory in subcategories %}
 {% else %}
 <h6>There are no Subcategories matching that search.</h6>
 {% endfor %}
+<small>Go to <a href="/nav_subcategories" class="link-fade-white">Subcategories Page</a></small>
 
+<br>
+<br>
 <br>
 
 {% endblock content %}
