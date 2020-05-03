@@ -36,16 +36,13 @@
                     {% endfor %}
                 </select>
                 <label>Subcategory Name:</label>
-                <!--<i class="material-icons prefix">subdirectory_arrow_right</i>
-                <input type="text" id="category" name="subcategory" class="autocomplete">
-                <label for="autocomplete-input">Subcategory</label>-->
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">short_text</i>
                 <input id="element_name" name="element_name" type="text" class="validate" value="{{element.element_name}}">
-                <label for="icon_prefix">Name:</label>
+                <label for="short_text">Name:</label>
             </div>
         </div>
         <div class="row">
@@ -55,7 +52,7 @@
                 Vignette will also be queried when a search is made on the site, and so it needs to not have too much
                 needless data, otherwise the search results will not be relevant.-->
                 <textarea id="element_vignette" name="element_vignette" type="text" class="materialize-textarea" data-length="240" value="{{element.element_vignette}}">{{element.element_vignette}}</textarea>
-                <label for="icon_telephone">Vignette:</label>
+                <label for="vignette">Vignette:</label>
             </div>
             <small><em>A Vignette is a short, simple description</em></small>
         </div>
@@ -66,21 +63,21 @@
                 property here. The description also won't be queried when a search is made, and so there is no harm in having
                 needless information here.-->
                 <textarea id="element_description" name="element_description" type="text" class="materialize-textarea" value="{{element.element_description}}">{{element.element_description}}</textarea>
-                <label for="icon_telephone">Description:</label>
+                <label for="view_headline">Description:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">event_note</i>
                 <textarea id="events" name="events" type="text" class="materialize-textarea" value="{{element.events}}">{{element.events}}</textarea>
-                <label for="icon_telephone">Events:</label>
+                <label for="event_note">Events:</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">add</i>
                 <textarea id="misc" name="misc" type="text" class="materialize-textarea" value="{{element.misc}}">{{element.misc}}</textarea>
-                <label for="icon_telephone">Misc:</label>
+                <label for="add">Misc:</label>
             </div>
         </div>
         <div class="row">
@@ -107,19 +104,19 @@
 
 {% endblock %} {% block js %}
 <script>
-/*    $(document).ready(function() {
-        var subcategoryLoop = {};
-        var subcategories = '{{subcategories}}';
-        for (subcategory in subcategories) {
-            var size = Object.keys(subcategoryLoop).length;
-            subcategoryLoop[size + 1] = {'subcategory': 'subcategory'};
-        }
-        console.log(subcategoryLoop);
-        console.log(subcategories);
-    });
-    $('input.autocomplete').autocomplete({
-    data: subcategoryLoop,
-    limit: 10,
-  });*/
+    /*    $(document).ready(function() {
+                    var subcategoryLoop = {};
+                    var subcategories = '{{subcategories}}';
+                    for (subcategory in subcategories) {
+                        var size = Object.keys(subcategoryLoop).length;
+                        subcategoryLoop[size + 1] = {'subcategory': 'subcategory'};
+                    }
+                    console.log(subcategoryLoop);
+                    console.log(subcategories);
+                });
+                $('input.autocomplete').autocomplete({
+                data: subcategoryLoop,
+                limit: 10,
+              });*/
 </script>
 {% endblock %}
