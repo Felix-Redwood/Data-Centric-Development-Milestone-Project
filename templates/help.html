@@ -1,71 +1,90 @@
-{% extends 'base.html' %} {% block title %}Help Page{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}Help Page{% endblock %} {% block content %}
 
 <div class="row">
 
     <h2>Help Page</h2>
 
+
+</div>
+<br>
+
+<div class="row">
+
+    <h5 class="help-header">Creating a new Item:</h5>
+    <hr>
+    <p class="justify">
+        To create a new item, you would click the 'NEW' button at the bottom of the relevant page, fill in the form and submit the form.
+    </p>
+    <p class="justify">
+        For example, if you wanted to create a new Story Element, you would go to the <a class="link-fade-blue" href="/nav_elements">Elements
+        </a> page, click the 'NEW ELEMENT' button at the bottom of the page, fill in the template that comes up, and then press 'ADD ELEMENT' at the bottom of the template.
+    </p>
+    <p class="justify">
+        When creating an element, remember that only information contained in the 'Name' and 'Vignette' fields will show up when searched for. Likewise, for Categories and Subcategories, only the information contained in their 'Name' and 'Description' fields
+        will show up when you perform a search. Keep this in mind, and put all data that you would like to show up when searched for in those fields.
+    </p>
+    <a name="read"></a>
 </div>
 
 <br>
 
 <div class="row">
-    
-    <h5><a name="create">Creating a new Piece of Information:</a></h5>
+
+    <h5 class="help-header">Viewing an Item:</h5>
     <hr>
     <p class="justify">
-        
+        To view an item, you can just go to the relevant page. There you will see a list of items. Click on the item you want to view, and all information about the item (e.g; the item's name, description, vignette etc.) will be displayed in a dropdown.
     </p>
-    
+    <p class="justify">
+        Alternatively, to bring an item into better view, you can click on the 'EDIT' button next to the item, which will take you to the 'Edit' page, where only that item will be displayed.
+    </p>
+
 </div>
 
 <br>
 
 <div class="row">
-    
-    <h5><a name="read">Viewing a Piece of Information:</a></h5>
+
+    <h5 class="help-header">Editing an Item:</h5>
     <hr>
     <p class="justify">
-        
+        To edit an item, click the 'EDIT' button next to that item. This will take you to the 'Edit' page, where you can change whatever information about the item that you wish to.
     </p>
-    
+    <p class="justify">
+        After you have edited the item, remember to click the 'DONE' button at the bottom of the page to save your changes.
+    </p>
+
 </div>
 
 <br>
 
 <div class="row">
-    
-    <h5><a name="update">Editing a Piece of Information:</a></h5>
+
+    <h5 class="help-header">Deleting an Item:</h5>
     <hr>
     <p class="justify">
-        
+        Next to each item is a button with the text "DELETE" (This text will read "DEL" on phone screens). By clicking this button, you can delete the item in question.
     </p>
-    
+    <p class="justify">
+        WARNING: ONCE YOU DELETE AN ITEM IT CANNOT BE RECOVERED
+    </p>
+
 </div>
 
 <br>
 
 <div class="row">
-    
-    <h5><a name="delete">Deleting a Piece of Information:</a></h5>
+
+    <h5 class="help-header">Toggling an Element's 'Important' Status:</h5>
     <hr>
     <p class="justify">
-        
+        With StoryBoard, each story element is either considered 'Important' or 'Unimportant'. This property can be toggled when creating or editing your story elements, but can also be toggled on the 'Home' page or the 'Elements' page.
     </p>
-    
-</div>
-
-<br>
-
-<div class="row">
-    
-    <h5><a name="toggle">Toggling an Element's 'Important' Status:</a></h5>
-    <hr>
     <p class="justify">
-        
+        When you click on a story element, you are shown its information (Name, Vignette, Description, etc.). At the bottom of this information is a small green lever, with the label 'Important:'. If you wish to toggle whether the element is considered 'Important',
+        click on this lever to change the status, and then click the 'toggle' button underneath it to lock in your changes.
     </p>
-    
+
 </div>
 
-{% endblock %}
+<br> {% endblock %}
