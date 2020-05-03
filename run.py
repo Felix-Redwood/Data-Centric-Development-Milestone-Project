@@ -279,7 +279,11 @@ def search_results():
                         subcategories=list(subcategories_results),
                         elements=list(elements_results))
 
+"""Help Page."""
 
+@app.route('/nav_help')
+def nav_help():
+    return render_template("help.html")
 
 """Miscellaneous"""
 
