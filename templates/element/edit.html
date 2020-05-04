@@ -25,14 +25,11 @@
                 <select id="category" name="subcategory">
                 <option value="" disabled selected>Select Subcategory</option>
                     {% for subcat in subcategories %}
-                    {% if subcat.category_name.lower() == element.category_name.lower() %}
                         {% if subcat.subcategory.lower() == element.subcategory.lower() %}
                             <option value="{{subcat.subcategory}}" selected>{{subcat.subcategory.capitalize()}}</option>
                         {% else %}
                             <option value="{{subcat.subcategory}}">{{subcat.subcategory.capitalize()}}</option>
                         {% endif %}
-                    {% else %}
-                    {% endif %}
                     {% endfor %}
                 </select>
                 <label>Subcategory Name:</label>
@@ -102,21 +99,4 @@
     </form>
 </div>
 
-{% endblock %} {% block js %}
-<script>
-    /*    $(document).ready(function() {
-                    var subcategoryLoop = {};
-                    var subcategories = '{{subcategories}}';
-                    for (subcategory in subcategories) {
-                        var size = Object.keys(subcategoryLoop).length;
-                        subcategoryLoop[size + 1] = {'subcategory': 'subcategory'};
-                    }
-                    console.log(subcategoryLoop);
-                    console.log(subcategories);
-                });
-                $('input.autocomplete').autocomplete({
-                data: subcategoryLoop,
-                limit: 10,
-              });*/
-</script>
 {% endblock %}
