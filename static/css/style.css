@@ -86,6 +86,10 @@ main {
     transition: color 0.3s ease-in-out;
 }
 
+footer .link-fade-white {
+    text-decoration: underline;
+}
+
 .white-link {
     text-decoration: none;
     color: #fff;
