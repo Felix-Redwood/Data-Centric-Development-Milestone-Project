@@ -74,6 +74,7 @@ def toggle_element_important_home(element_id):
        {'_id':ObjectId(element_id)},
        {'$set':{"important":True}}
         )
+    assert type(importantbool['important']) is bool, "'important' not stored as Boolean"
     return render_template("index.html",
                             elements=mongo.db.story_elements.find().limit(10))
 
@@ -111,6 +112,7 @@ def toggle_element_important_elements(element_id):
        {'_id': ObjectId(element_id)},
        {'$set': { "important" : True }}
         )
+    assert type(importantbool['important']) is bool, "'important' not stored as Boolean"
     return render_template("element/elements.html", elements=mongo.db.story_elements.find())
 
 
@@ -146,6 +148,7 @@ def update_element(element_id):
      'misc':request.form.get('misc'),
      'important':(important)
     })
+    assert type(important) is bool, "'important' not stored as Boolean"
     return redirect(url_for('nav_elements'))
 
 
@@ -273,7 +276,6 @@ def search_results():
     categories_results = mongo.db.categories.find({'$text': {'$search':request.form.get('search_inquiry')}})
     subcategories_results = mongo.db.subcategories.find({'$text': {'$search':request.form.get('search_inquiry')}})
     elements_results = mongo.db.story_elements.find({'$text': {'$search':request.form.get('search_inquiry')}})
-    print (categories_results)
     return render_template("searchresults.html",
                         categories=list(categories_results),
                         subcategories=list(subcategories_results),
