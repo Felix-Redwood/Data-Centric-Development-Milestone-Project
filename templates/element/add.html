@@ -7,7 +7,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">library_books</i>
-                <select id="category" name="category_name">
+                <select id="category" name="category_name" required>
                 <option value="" disabled selected>Select Category</option>
                     {% for cat in categories %}
                         <option value="{{cat.category_name}}">{{cat.category_name.capitalize()}}</option>
@@ -17,7 +17,7 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">subdirectory_arrow_right</i>
-                <select id="category" name="subcategory">
+                <select id="category" name="subcategory" required>
                 <option value="" disabled selected>Select Subcategory</option>
                     {% for subcat in subcategories %}
                         <option value="{{subcat.subcategory}}">{{subcat.subcategory.capitalize()}}</option>
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">short_text</i>
-                <input id="element_name" name="element_name" type="text" class="validate">
+                <input id="element_name" name="element_name" type="text" class="validate" required>
                 <label for="icon_prefix">Name:</label>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <!--The Vignette is just a short description, and so is given a data-length of 240 to keep it short. The
                 Vignette will also be queried when a search is made on the site, and so it needs to not have too much
                 needless data, otherwise the search results will not be relevant.-->
-                <textarea id="element_vignette" name="element_vignette" type="text" class="materialize-textarea" data-length="240"></textarea>
+                <textarea id="element_vignette" name="element_vignette" type="text" class="materialize-textarea" data-length="240" required></textarea>
                 <label for="icon_telephone">Vignette:</label>
             </div>
             <small><em>A Vignette is a short, simple description</em></small>
