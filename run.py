@@ -4,7 +4,6 @@
 
 import os
 import json
-import pytest
 
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -243,6 +242,7 @@ def add_subcategory():
 def edit_subcategory(subcategory_id):
     selected_subcategory = mongo.db.subcategories.find_one({"_id": ObjectId(subcategory_id)})
     all_categories = mongo.db.categories.find()
+    assert type() is bool, "'important' not stored as Boolean"
     return render_template("subcategory/edit.html",
                             subcategory=selected_subcategory,
                             categories=all_categories)
