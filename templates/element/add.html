@@ -3,7 +3,7 @@
 
 <h3>Add Element:</h3>
 <div class="row">
-    <form action="{{ url_for('insert_element') }}" method="POST" class="col s12" id="editForm" name="editForm" onsumbit="return validateEdit()">
+    <form action="{{ url_for('insert_element') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">library_books</i>
@@ -85,19 +85,4 @@
     </form>
 </div>
 
-{% endblock content %} {% block js %}
-<script>
-    function validateEdit() {
-        var x = document.getElementById("category").value;
-        if (x == "") {
-            alert("Name must be filled out");
-            return false;
-
-        }
-        else {
-            alert(x);
-        }
-
-    }
-</script>
-{% endblock %}
+{% endblock content %}
