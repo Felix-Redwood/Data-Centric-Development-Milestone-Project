@@ -10,6 +10,10 @@ data, as well as be able to search the data, and to delete, edit or add to the d
 to be as simple as possible, by having a search bar and nesting relevant subcategories on the 'Categories' page (e.g:
 'House' and 'City' may show up under the 'Place' section of the 'Categories' page).
 
+To increase code simplicity, \<br> tags were used, instead of padding, where possible. In addition, code duplication was 
+prevented by using Flask to render templates, which would carry the bulk of a page's HTML. For example; the Navbar and 
+Footer for each page is stored within one 'base.html' template, which other pages render.
+
 UX:
 -
 
@@ -21,6 +25,15 @@ The StoryBoard site helps them achieve this via allowing a user to Create, Read,
 story (dynamic editing), as well as allowing them to access this information quickly via the navbar links and the search
 bar. In addition, the user can create their *own* Categories, Subcategories and Story Elements, allowing a greater
 degree of customisability for the user.
+
+The site has a minimalist design, in order to keep site use simple for the user. When creating this project, I experimented 
+with the use of a large image on the main page, but instead decided to go for a text-focused design that I felt fitted 
+a project designed around stories better.
+
+To stay minimalist, the site uses only one colour scheme (Black text on a white background with blue links for the main 
+portion of the site, white text on a green background with underlined links that turn green when hovered over for the 
+Navbar and Footer), as well as only having a few pages that are accessed via the navbar; the Homepage, the 'Elements' 
+page, the 'Categories' page, the 'Subcategories' page and the 'Search Results' page.
 
 ### User Stories:
 
@@ -127,6 +140,7 @@ on how to use the site, type 3 users are able to navigate the site by consulting
 * Ability to log in and create an account.
 * Handling of other errors (e.g. 403).
 * Ability to have multiple stories or narratives that a user can switch between.
+* User confirmation upon deleting, creating or adding new data.
 
 
 Technologies used:
@@ -144,20 +158,134 @@ were used to help connect and send commands to MongoDB.
 Testing:
 -
 
-AUTOMATED TESTING
+The 'Testing' section of this README is very long. As such, I have written it in a seperate file in this project, called 
+'testing.md'. It can be found within the project files or with the link 
+[here](https://github.com/Felix-Redwood/Data-Centric-Development-Milestone-Project/blob/master/Testing.md).
+
 
 Deployment:
 -
 
-TALK ABOUT THE TROUBLES WITH THE 'IMPORTANT' TOGGLES
+### Setting Up and connecting to the MongoDB Atlas DataBase:
 
-TALK ABOUT SETTING UP THE JAVASCRIPT FOR THE ELEMENT EDITOR (THE AUTOCORRECTOR)
+In my MongoDB Atlas, I created a new DataBase called 'story_database'. I used the following code in my run.py file 
+to link to this database:
 
-This project is deployed to GitHub pages, and can be viewed in its rendered form in Heroku [here](https://story-database-milestone.herokuapp.com/). 
-It can also be viewed in its code form in github [here](https://github.com/Felix-Redwood/Data-Centric-Development-Milestone-Project).
+app.config["MONGO\_DBNAME"] = 'story_database'
+
+I then created a root user with the ability to read and write to any database. I called this user 'root'.
+
+
+### Setting up the ENV.PY file:
+
+The MONGO_URI string is neccesary for connecting to and changing a MongoDB Atlas database, however this string will 
+contain the password for the root user. Since the root user is able to read to and write to the database, pushing 
+any file containing the MONGO_URI string to github is insecure, as anyone will be able to gain root access to the 
+database.
+
+For this reason, this project contains a file called env.py. This file stores the MONGO_URI. In the run.py file, the 
+function to generate the MONGO_URI variable goes as follows:
+
+def import_mongouri():
+    if os.path.exists("env.py"):
+        import env
+        app.config["MONGO\_URI"] = env.MONGO_URI
+    else:
+        app.config["MONGO\_URI"] = os.environ.get('MONGO_URI')
+
+
+import_mongouri()
+
+This function first searches for the 'env.py' file. If the file is present, then this function sets the MONGO_URI 
+variable used in run.py to the MONGO_URI defined in env.py.
+
+If this file isn't present, then the function will search the environment for a variable called 'MONGO_URI'.
+
+The env.py file is stored within the .gitignore file, meaning that the MONGO_URI will not be pushed to github. This way, 
+anyone viewing the github code will not be able to gain root access.
+
+
+### Setting up Config Vars in Heroku
+
+In the 'else' section of the function above, the run.py file searches the local environment for a variable called 'MONGO_URI'.
+
+In Heroku (Where the deployed version of this project is hosted), there are three 'Config Vars' (Short for 'configuration 
+variables'); IP, which is set to '0.0.0.0'; PORT, which is set to '5000' and the MONGO_URI.
+
+The above function will scan Heroku's Config Vars, searching for the one labelled 'MONGO_URI', and will use it's value for that 
+of the 'MONGO_URI' variable in 'run.py'.
+
+IP and PORT are set this way so that *anyone* can access the project.
+
+
+### Setting up Indexes in MongoDB Atlas:
+
+In order for the Search Bar (And the 'search_results' function) to work, I needed to create a 
+[Text Index](https://docs.mongodb.com/manual/core/index-text/index.html) within each collection. A MongoDB text index 
+contains some of the collection's fields in the form of strings. When setting up these indexes, I included the fields 
+that I wanted to be queried upon a search being made, these were:
+
+1. For the Elements:
+    1. element_name
+    2. element_vignette
+    3. category_name
+    4. subcategory
+
+2. For the Categories:
+    1. category_name
+    2. category_description
+
+3. For the Subcategories:
+    1. category_name
+    2. subcategory
+    3. subcategory_description
+
+This is an example of the code I used to query the 'categories' index.
+
+categories\_results = mongo.db.categories.find({'$text': {'$search':request.form.get('search_inquiry')}})
+
+I generated three sets of data, for 'categories', 'story_elements' and 'subcategories', and these data sets were 
+passed as lists into the 'searchresults.html' file.
+
+
+### Project Info
+
+This project can be viewed in its rendered form in Heroku [here](https://story-database-milestone.herokuapp.com/). 
+It can also be viewed in its code form (the development version) in Github
+[here](https://github.com/Felix-Redwood/Data-Centric-Development-Milestone-Project).
 
 I have taken steps to ensure that after every session with the development version of this project, I push my code to both Github and Heroku.
-Currently there is no difference between the deployed version of this project and the development version.
+
+There are two differences between the deployed version and the development version. Firstly, the deployed version of this project is hosted 
+on Heroku, and the 'MONGO_URI' config variable in the run.py file is contained within Heroku's 'Config Vars'. Secondly, in the 
+development version, at the bottom of 'run.py', 'debug' is set to 'True', whereas in the deployed version it is set to 'False'.
+
+However, the development version has the 'MONGO_URI' variable stored in a seperate file called env.py. This file is in .gitignore, and so 
+it is not pushed to Github. For this reason, trying to render this project from its Github page will be unsuccessful.
+
+#### Running the code locally:
+
+To run this code locally (not using Heroku), several steps must be taken, outlined below:
+1. Create a [MongoDB Atlas cluster](https://docs.atlas.mongodb.com/tutorial/create-new-cluster/).
+2. Create a database within that cluster called 'story_database.
+3. Create a new database user within MongoDB Atlas, using the SCRAM authentication method and the 	
+readWriteAnyDatabase@admin role. Create a password and username for this user.
+4. In your cluster, click 'Connect', then 'Connect Your Application', and then copy the connection string.
+5. To this project's files, create a file called env.py. In that file, in the first line, write 'import os'.
+6. In a line further down the file, write 'MONGO_URI = ""'. Within the double quotes, paste the connection string, 
+replacing the <password> section with your user's *actual* password.
+7. Within your 'story\_database' database, create 3 collections, each called 'categories', 'subcategories' and 'story_elements'
+8. Create an index within each of these collections. Within this index, include whatever fields you would like. The data of these 
+fields will show up in the search results. For this project, generally only the 'name' and 'description' fields are indexed. Ensure 
+that each field has a type of "text".
+9. Use your CLI (Command Line Interface) to install each requirement in the 'requirements.txt' file. The common way 
+of doing this is to use 'pip3' and to leave off the equals signs and everything after them. For example, to install 
+dnspython, you might use the command: 'pip3 install dnspython'. These commands will vary with which program you use, 
+it's advisable to look them up.
+10. You can now create your own narrative! If you want to use this code for a different database, you can, however the 
+entire project is built around the 'story_database' database, and so using a different database would involve changing *all* 
+database variables in the entire project.
+
 
 Credits:
 -
