@@ -291,4 +291,4 @@ def nav_help():
 
 if __name__ == '__main__':
     """'debug' should be set to False in the deployed project, and set to True in the development version."""
-    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=False)
+    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
