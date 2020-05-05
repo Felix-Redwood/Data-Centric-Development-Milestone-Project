@@ -70,11 +70,15 @@ Features:
 
 ### Existing Features:
 
-* Feature 1; Creating Data - Feature 1 allows users of type 1 and 2 to create data, by 
+#### Feature 1 - Creating Data:
+Feature 1 allows users of type 1 and 2 to create data, by 
 clicking on the 'ADD' buttons in the 'Elements', 'Categories' and 'Subcategories' pages. 
 Upon clicking, the user is taken to a form, which they can fill out and then submit, to add 
 new Elements, Categories or Subcategories to the database. 
-* Feature 2; Reading Data - Feature 2 allows type 1 and 2 users to view their data. Up to 10 
+
+
+#### Feature 2 - Reading Data:
+Feature 2 allows type 1 and 2 users to view their data. Up to 10 
 story elements are shown on the homepage, instantly allowing users to see the most recent data 
 that has been added. In addition, on the 'Home' page and the 'Elements' page, the users can 
 toggle a checkbox in order to choose whether to only see elements which are 'Important' (i.e: 
@@ -89,14 +93,23 @@ list item. For example, a category called 'Places', with subcategories of 'House
 will display those subcategories within its list item.
 Finally, the search bar within the nav bar allows users to search for data, and returns 
 results relevant to the query, enabling users to quickly search for a specific result.
-* Feature 3; Editing Data - Feature 3 allows type 1 and 2 users to edit their data. By clicking
+
+
+#### Feature 3 - Editing Data:
+Feature 3 allows type 1 and 2 users to edit their data. By clicking
 on the 'EDIT' buttons next to a piece of data, the user is taken to a new page, where all of the 
 relevant fields are displayed and editable. A user can edit one field, or edit them all, and is 
 able to toggle the 'Important' status of elements that they may edit.
-* Feature 4; Deletion of Data - Feature 4 allows users of type 1 and 2 to delete their data. 
+
+
+#### Feature 4 - Deletion of Data:
+Feature 4 allows users of type 1 and 2 to delete their data. 
 By clicking on the 'DELETE' button next to a piece of data, the user can permanently delete 
 that data from the database.
-* Feature 5; Searching for Data - Feature 5 is useful for all 5 users, in different ways. In 
+
+
+#### Feature 5 - Searching for Data:
+Feature 5 is useful for all 5 users, in different ways. In 
 terms of type 1 users, feature 5 allows them to use the search bar, contained within the nav 
 bar, to search for pieces of data from the database. This is useful for tasks such as; checking 
 if a piece of data has been deleted, checking for accidental duplicates and bringing up all 
@@ -113,25 +126,40 @@ called 'Cars', they can simply search for that data.
 For type 4 and 5 users, the screens of tablets and mobiles are much smaller than those of desktops. 
 For this reason, a search bar makes for better UX, as it decreases user reliance on buttons, instead 
 allowing the user to navigate through the site with a much larger, 'search bar' element.
-* Feature 6; Viewing Important Data Only - Feature 6 is useful primarily for type 2 and 3 users. 
+
+
+#### Feature 6 - Viewing Important Data Only:
+Feature 6 is useful primarily for type 2 and 3 users. 
 For type 2 users, being able to only view important elements allows allows them to slim down the number 
 of elements they are presented with to only what is most relevant for the story.
 For type 3 users, being able to only view important elements allows them to have less information on 
 the screen, meaning that they are less likely to be confused and/or overstimulated.
-* Feature 7; Toggling Important Data - Feature 7 is useful for type 1 and 2 users, as it allows them 
+
+
+#### Feature 7 - Toggling Important Data:
+Feature 7 is useful for type 1 and 2 users, as it allows them 
 to edit the 'Important' status of elements without having to go to the trouble of loading the 'edit' 
 page. This is not a massive feature, but does make for better UX by allowing simple editing to be done 
 without clicking the 'EDIT' button.
-* Feature 8; 404 Error Handling - Feature 8 is useful for ALL users, but especially for type 3 users. 
+
+
+#### Feature 8 - 404 Error Handling:
+Feature 8 is useful for ALL users, but especially for type 3 users. 
 The 404.html page provides a quick explaination of the problem 'Page Not Found', as well as providing a 
 link to the Homepage, as well as an email address for the purposes of complaints or feedback. This will 
 be most useful for type 3 users, as they are the least likely to understand what a 404 error is, and will 
 need clear direction to navigate back to the Homepage.
-* Feature 9; Mobile & Tablet compatibility - Feature 9 is useful for type 4 and 5 users. By using a mobile-
+
+
+#### Feature 9 - Mobile & Tablet compatibility:
+Feature 9 is useful for type 4 and 5 users. By using a mobile-
 first design, coupled with @media() rules for both tablets *and* mobiles as well as Materalize 
 [tabs](http://archives.materializecss.com/0.100.2/tabs.html) that display in the Navbar on mobiles and 
 tablets, the site is easy to navigate on these screen sizes.
-* Feature 10; Help Page - Feature 10 is useful for type 3 users. By providing a list of clear instructions 
+
+
+#### Feature 10 - Help Page:
+Feature 10 is useful for type 3 users. By providing a list of clear instructions 
 on how to use the site, type 3 users are able to navigate the site by consulting the 'Help' page.
 
 
