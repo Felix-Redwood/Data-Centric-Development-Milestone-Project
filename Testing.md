@@ -19,19 +19,19 @@ within the function is a boolean.
     1. Go to the 'Elements' page and click the 'NEW ELEMENT' button.
     2. Try to add an Element without providing the name and verify that an error message appears.
     3. Try to add an Element without providing the vignette and verify that an error message appears.
-    4. Try to add an Element without providing the category name and verify that an error message appears.
-    5. Try to add an Element without providing the subcategory name and verify that an error message appears.
+    4. Try to add an Element without providing the category name and verify that no new element is added.
+    5. Try to add an Element without providing the subcategory name and verify that no new element is added.
 
 
 * Creating a new Category:
     1. Go to the 'Categories' page and click the 'NEW CATEGORY' button.
-    2. Try to add a Category without providing the name and verify that an error message appears.
+    2. Try to add a Category without providing the name and verify that no new c is added.
     3. Try to add a Category without providing the description and verify that an error message appears.
 
 
 * Creating a new Subcategory:
     1. Go to the 'Subcategories' page and click the 'NEW SUBCATEGORY' button.
-    2. Try to add a Subcategory without providing the category and verify that an error message appears.
+    2. Try to add a Subcategory without providing the category and verify that no new subcategory is added.
     2. Try to add a Subcategory without providing the name and verify that an error message appears.
     3. Try to add a Subcategory without providing the description and verify that an error message appears.
 
@@ -69,8 +69,8 @@ within the function is a boolean.
     'Name' field contains the Element's name).
     2. Try to update an Element without the 'name' field filled and verify that an error message appears.
     3. Try to update an Element without the 'vignette' field filled and verify that an error message appears.
-    4. Try to update an Element without a selected 'category' and verify that an error message appears.
-    5. Try to update an Element without a selected 'subcategory' and verify that an error message appears.
+    4. Try to update an Element without a selected 'category' and verify that no new element is added.
+    5. Try to update an Element without a selected 'subcategory' and verify that no new element is added.
 
 
 * Toggling an Element's 'important' status from the Homepage:
@@ -89,8 +89,8 @@ within the function is a boolean.
     'Name' field contains the Element's name).
     2. Try to update the Element without the 'name' field filled and verify that an error message appears.
     3. Try to update the Element without the 'vignette' field filled and verify that an error message appears.
-    4. Try to update the Element without a selected 'category' and verify that an error message appears.
-    5. Try to update the Element without a selected 'subcategory' and verify that an error message appears.
+    4. Try to update the Element without a selected 'category' and verify that no new element is added.
+    5. Try to update the Element without a selected 'subcategory' and verify that no new element is added.
 
 
 * Toggling an Element's 'important' status from the 'Elements' page:
@@ -117,7 +117,7 @@ within the function is a boolean.
     'Name' field contains the Subcategory's name).
     2. Try to update the Subcategory without the 'name' field filled and verify that an error message appears.
     3. Try to update the Subcategory without the 'description' field filled and verify that an error message appears.
-    4. Try to update the Subcategory without a selected 'category' and verify that an error message appears.
+    4. Try to update the Subcategory without a selected 'category' and verify that no new subcategory is added.
 
 
 
